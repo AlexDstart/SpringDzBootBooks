@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список книг</title>
+
+    <style>
+
+        nav{
+            background: #64b90e;
+            padding: 10px;
+        }
+        nav a{
+            color: #dddddd;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        body{
+            text-align: center;
+            background: beige;
+        }
+        table{
+            margin: 20px auto;
+            width: 60%;
+
+            border-collapse: collapse;
+        }
+        th,td{
+
+            border: 1px solid #ddd;
+            padding:8px;
+
+        }
+        th{
+            font-size:larger;
+            background: #64b90e;
+            color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/books">Список книг</a>
+    <a href="/add_book">Добавить книгу</a>
+</nav>
+
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>count</th>
+            <th>price</th>
+            <th>dateManufacture</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="book : ${booksList}">
+            <td th:text="${book.getId()}"></td>
+            <td th:text="${book.getTitle()}"></td>
+            <td th:text="${book.getCount()}"></td>
+            <td th:text="${book.getPrice()}"></td>
+            <td th:text="${book.getDateManufacture()}"></td>
+        </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

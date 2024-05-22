@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добвление книги</title>
+
+    <style>
+        body{
+            background: #c8e7ab;
+            text-align: center;
+        }
+
+        nav{
+            background: #64b90e;
+            padding: 10px;
+        }
+        nav a{
+            color: #dddddd;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        form{
+            margin-top: 10%;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav>
+<a href="/books">Список книг</a>
+<a href="/add_book">Добавить книгу</a>
+</nav>
+
+
+<form action="/add_book" method="post" th:object="${book}">
+  <label>Название книги</label><br>
+  <input type="text" th:field="*{title}"><br><br>
+
+  <label>Колличество книг</label><br>
+  <input type="number" th:field="*{count}"><br><br>
+
+  <label>Цена книги</label><br>
+  <input type="number" th:field="*{price}"><br><br>
+
+    <label>Дата поставки</label><br>
+    <input type="date" th:field="*{dateManufacture}"><br><br>
+
+    <button type="submit">Добавить</button>
+
+</form>
+
+
+</body>
+</html>
